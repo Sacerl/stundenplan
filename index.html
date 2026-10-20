@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Stundenplan 2026/27</title>
+  <meta name="description" content="Stundenplan für das Schuljahr 2026/27 – mit Entfällen, Vertretungen, Prüfungen und Ferien.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stundenplan 2026/27">
+  <meta property="og:description" content="Wochenansicht mit Entfällen, Vertretungen, Prüfungen und Ferien.">
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='24' rx='6' fill='%23f05a28'/%3E%3Crect x='3' y='5' width='26' height='8' rx='4' fill='%23c2410c'/%3E%3Crect x='9' y='2' width='3' height='7' rx='1.5' fill='%23c2410c'/%3E%3Crect x='20' y='2' width='3' height='7' rx='1.5' fill='%23c2410c'/%3E%3Crect x='8' y='16' width='5' height='4' rx='1' fill='%23fff'/%3E%3Crect x='15' y='16' width='5' height='4' rx='1' fill='%23fff'/%3E%3Crect x='8' y='22' width='5' height='4' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="24" rx="6" fill="var(--accent)"/><rect x="3" y="5" width="26" height="8" rx="4" fill="var(--accent-deep)"/><rect x="9" y="2" width="3" height="7" rx="1.5" fill="var(--accent-deep)"/><rect x="20" y="2" width="3" height="7" rx="1.5" fill="var(--accent-deep)"/><rect x="8" y="16" width="5" height="4" rx="1" fill="#fff"/><rect x="15" y="16" width="5" height="4" rx="1" fill="#fff"/><rect x="8" y="22" width="5" height="4" rx="1" fill="#fff"/></svg>
+        <div>
+          <h1>Stundenplan</h1>
+          <p class="sub" id="sub">Schuljahr wird geladen …</p>
+        </div>
+      </div>
+      <nav class="weeknav" aria-label="Woche wählen">
+        <button class="icon-btn" id="prev" aria-label="Vorige Woche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="range">
+          <span id="kw">&nbsp;</span>
+          <strong id="range">&nbsp;</strong>
+        </div>
+        <button class="icon-btn" id="next" aria-label="Nächste Woche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button class="pill" id="today">Heute</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="weekinfo" id="weekinfo"></div>
+    <div class="daytabs" id="daytabs" role="tablist" aria-label="Tag wählen"></div>
+    <section class="week" id="week" aria-label="Wochenansicht"><p class="loading">Stundenplan wird geladen …</p></section>
+    <section class="daylist" id="daylist" aria-live="polite"></section>
+  </main>
+
+  <footer class="foot">
+    <div class="legend" aria-label="Legende">
+      <span><i class="badge b-cancel">Entfall</i></span>
+      <span><i class="badge b-change">Vertretung</i> / <i class="badge b-change">Raum</i> geändert</span>
+      <span><i class="badge b-exam">Prüfung</i></span>
+      <span><i class="badge b-extra">Zusatz</i></span>
+      <span><i class="badge b-event">Termin</i></span>
+    </div>
+    <p id="stand"></p>
+  </footer>
+
+  <dialog id="detail" aria-label="Details zur Stunde"></dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
